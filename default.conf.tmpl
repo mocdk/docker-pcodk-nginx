@@ -4,22 +4,16 @@ server {
     root $NGINX_WEBROOT;
     server_name ${NGINX_SERVERNAME};
 
-    index ${NGINX_INDEX_FILES}
-
-    access_log /var/log/nginx/access.log access;
-    error_log /var/log/nginx/error.log error;
-
     location / {
         try_files $uri ${NGINX_TRY_FILES};
     }
 
     sendfile off;
-
     location ~ ^/.+\.php(/|$) {
         fastcgi_pass ${NGINX_PHP_HOST_AND_PORT};
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME $document_root\$fastcgi_script_name;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param HTTPS off;
     }
 }
