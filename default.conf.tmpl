@@ -21,7 +21,7 @@ server {
     }
 
     sendfile off;
-    if (${NGINX_PHP_DISABLED}) {
+    if (${NGINX_PHP_DISABLED} = 'true') {
         location ~ ^/.+\.php(/|$) {
             fastcgi_pass ${NGINX_PHP_HOST_AND_PORT};
             fastcgi_split_path_info ^(.+\.php)(/.*)$;
