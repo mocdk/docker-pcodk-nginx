@@ -7,7 +7,7 @@ server {
     location / {
         try_files $uri ${NGINX_TRY_FILES};
     }
-
+    client_max_body_size 100M;
     sendfile off;
     location ~ ^/.+\.php(/|$) {
         fastcgi_pass ${NGINX_PHP_HOST_AND_PORT};
