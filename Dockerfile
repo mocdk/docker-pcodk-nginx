@@ -2,6 +2,7 @@ FROM nginx:1
 
 COPY default.conf.tmpl /etc/nginx/conf.d/site.tmpl
 COPY run.sh /bin/run.sh
+COPY mime.types /etc/nginx/mime.types
 ENV NGINX_LISTEN_PORT 80
 ENV NGINX_WEBROOT "/var/www/application/web"
 ENV NGINX_SERVERNAME nginx_pco
