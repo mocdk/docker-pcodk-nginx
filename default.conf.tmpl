@@ -8,9 +8,7 @@ server {
         try_files $uri ${NGINX_TRY_FILES};
 	client_max_body_size 100M;        
         
-        if ($request_method = 'OPTIONS') {
-            return 204;
-         }
+
     }
     client_max_body_size 100M;
     sendfile off;
