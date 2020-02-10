@@ -36,6 +36,11 @@ server {
         add_header 'Access-Control-Allow-Credentials' 'true' always;
         add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, PATCH, DELETE' always;
         add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type' always;
+    
+    	gzip on;
+	gzip_types      application/atom+xml application/javascript application/x-javascript application/json application/hal+json application/rss+xml application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/svg+xml image/x-icon text/css text/plain text/html text/x-component;
+	gzip_proxied    no-cache no-store private expired auth;
+	gzip_min_length 1000;
     }
 }
 
